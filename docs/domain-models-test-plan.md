@@ -6,15 +6,27 @@
 | ------- | ------------------------ | ------------- | -------- |
 | Airport | airportCapacity @Integer | getCapacity() | @Integer |
 
+### Test
+
+- set default airport capacity and test if getCapacity return correct capacity value
+
+- Test that getCapacity only returns an integer
+
 ---
 
 ## [User Story/Requirement 2](user-stories.md)
 
-| Object  | Properties               | Messages           | Output |
-| ------- | ------------------------ | ------------------ | ------ |
-| Airport | airportCapacity @Integer | overrideCapacity() | @void  |
+| Object  | Properties               | Messages                   | Output |
+| ------- | ------------------------ | -------------------------- | ------ |
+| Airport | airportCapacity @Integer | overrideCapacity(@Integer) | @void  |
 
----
+### Test
+
+- set new airport capacity using overrideCapacity() and test if airportCapacity property reflects new change
+- Test that airportCapacity cannot be set to a negative value
+- Test that airport capacity can be set to zero
+
+  ***
 
 ## [User Story/Requirement 3](user-stories.md)
 
@@ -22,6 +34,14 @@
 | ------- | ---------------------------- | --------------------------------- | -------- |
 | Airport | airportPlanes @Array[@Plane] | planeLand(@Plane) isAirportFull() | @Boolean |
 | Plane   | id @String                   |                                   |          |
+
+### Test
+
+- Test that isAirportFull() returns true when the airport is at capacity.
+- Test that isAirportFull() returns false when the airport has available space.
+- Add plane to airport using planeLand and expect airportPlanes to increase by length 1
+- Test that planeLand() adds the correct plane to the airportPlanes.
+- Add plane to airport using planeLand when airport is full and expect airportPlanes array to be unchanged in length
 
 ---
 
@@ -32,14 +52,26 @@
 | Airport | airportPlanes @Array[@Plane] | planeLand(@Plane) planeAtAirport(@Plane) | @Boolean |
 | Plane   | id @String                   |                                          |          |
 
+### Test
+
+- Test that planeAtAirport(Plane) returns true when the plane is at the airport.
+- Test that planeAtAirport(Plane) returns false when the plane is not at the airport.
+- Land plane to airport using planeLand when plane is already at airport and expect airportPlanes array to be unchanged in length
+- Land plane to airport using planeLand when plane is not at airport and expect airportPlanes array to increase in length by 1
+
 ---
 
 ## [User Story/Requirement 5](user-stories.md)
 
-| Object  | Properties                   | Messages                                 | Output   |
-| ------- | ---------------------------- | ---------------------------------------- | -------- |
-| Airport | airportPlanes @Array[@Plane] | planeLand(@Plane) planeAtAirport(@Plane) | @Boolean |
-| Plane   | id @String                   |                                          |          |
+| Object  | Properties                   | Messages                                    | Output   |
+| ------- | ---------------------------- | ------------------------------------------- | -------- |
+| Airport | airportPlanes @Array[@Plane] | planeTakeOff(@Plane) planeAtAirport(@Plane) | @Boolean |
+| Plane   | id @String                   |                                             |          |
+
+### Test
+
+- Take off plane from the airport using planeTakeOff when plane is already at airport and expect airportPlanes array to be decrease in length by 1
+- Take off plane from the airport using PlaneTakeOff when plane is not at airport and expect airportPlanes array to be unchanged in length
 
 ---
 
@@ -50,6 +82,11 @@
 | Airport | airportPlanes @Array[@Plane] Weather @Array[@currentWeather] | planeLand(@Plane, @currentWeather) | @Boolean |
 | Plane   | id @String                                                   |                                    |          |
 
+### Test
+
+- Test when currentWeather is stormy and use planeLand() and expect airportPlanes array to be unchanged
+- Test when currentWeather is not Stormy and use planeLand() and expect airportPlanes array to increase by length 1
+
 ---
 
 ## [User Story/Requirement 7](user-stories.md)
@@ -58,3 +95,8 @@
 | ------- | ------------------------------------------------------------ | ------------------------------------- | -------- |
 | Airport | airportPlanes @Array[@Plane] Weather @Array[@currentWeather] | planeTakeOff(@Plane, @currentWeather) | @Boolean |
 | Plane   | id @String                                                   |                                       |          |
+
+### Test
+
+- Test when currentWeather is Stormy and use planeTakeOff() and expect airportPlanes array to be unchanged
+- Test when currentWeather is not Stormy and use planeTakeOff() and expect airportPlanes array to decrease by length 1
