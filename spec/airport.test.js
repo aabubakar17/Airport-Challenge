@@ -258,3 +258,28 @@ function testPlaneLandWhenFull() {
 }
 
 testPlaneLandWhenFull();
+
+function testPlaneAtAirport() {
+  console.log("\n***********");
+  console.log("testPlaneAtAirport");
+  console.log(
+    "Test that planeAtAirport(Plane) returns true when the plane is at the airport."
+  );
+
+  //ARRANGE
+  const airport = new Airport();
+  const planeRA = new Plane();
+  let actual, result;
+
+  //ACT
+  airport.planeLand(planeRA);
+  actual = airport.planeAtAirport(planeRA);
+
+  //ASSERT
+  result = assertTrue(actual);
+
+  //REPORT
+  printResult(result, actual, false);
+}
+
+testPlaneAtAirport();
