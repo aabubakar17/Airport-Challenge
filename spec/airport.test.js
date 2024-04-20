@@ -163,3 +163,54 @@ function testAirportNotFull() {
 }
 
 testAirportNotFull();
+
+function testPlaneLand() {
+  console.log("\n***********");
+  console.log("testPlaneLand");
+  console.log(
+    "Add plane to airport using planeLand and expect airportPlanes to increase by length 1"
+  );
+
+  //ARRANGE
+  const airport = new Airport();
+  const planeBA = new Plane();
+  const expected = airport.airportPlanes.length + 1;
+  let actual, result;
+
+  //ACT
+  airport.planeLand(planeBA);
+  actual = airport.airportPlanes.length;
+
+  //ASSERT
+  result = assertEquals(actual, expected);
+
+  //REPORT
+  printResult(result, actual, true);
+}
+
+testPlaneLand();
+
+function testPlaneIsInAirport() {
+  console.log("\n***********");
+  console.log("testPlaneIsInAirport");
+  console.log(
+    "Test that planeLand() adds the correct plane to the airportPlanes"
+  );
+
+  //ARRANGE
+  const airport = new Airport();
+  const planeBA = new Plane();
+  let actual, result;
+
+  //ACT
+  airport.planeLand(planeBA);
+  actual = airport.airportPlanes.includes(planeBA);
+
+  //ASSERT
+  result = assertTrue(actual);
+
+  //REPORT
+  printResult(result, actual, true);
+}
+
+testPlaneIsInAirport();

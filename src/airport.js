@@ -9,4 +9,8 @@ export class Airport {
   isAirportFull() {
     return this.airportPlanes.length >= this.airportCapacity ? true : false;
   }
+
+  planeLand(newPlane) {
+    this.airportPlanes.push(newPlane);
+  }
 }
