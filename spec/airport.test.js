@@ -139,3 +139,27 @@ function testAirportFull() {
 }
 
 testAirportFull();
+
+function testAirportNotFull() {
+  console.log("\n***********");
+  console.log("testAirportNotFull");
+  console.log(
+    "Test isAirportFull() returns false when the airport has available space"
+  );
+
+  //ARRANGE
+  const airport = new Airport();
+  let actual, result;
+
+  //ACT
+  airport.airportPlanes.push(new Plane(), new Plane(), new Plane());
+  actual = airport.isAirportFull();
+
+  //ASSERT
+  result = assertFalse(actual);
+
+  //REPORT
+  printResult(result, actual, false);
+}
+
+testAirportNotFull();

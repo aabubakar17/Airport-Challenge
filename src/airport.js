@@ -7,6 +7,6 @@ export class Airport {
   }
 
   isAirportFull() {
-    if (this.airportPlanes.length >= this.airportCapacity) return true;
+    return this.airportPlanes.length >= this.airportCapacity ? true : false;
   }
 }
