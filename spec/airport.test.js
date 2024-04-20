@@ -58,7 +58,7 @@ testOverrideCapacity();
 
 function testOverrideCapacityNegativeValue() {
   console.log("\n***********");
-  console.log("testOverrideCapacity");
+  console.log("testOverrideCapacityNegativeValue");
   console.log(`Test that airportCapacity cannot be set to a negative value`);
 
   //ARRANGE
@@ -79,3 +79,27 @@ function testOverrideCapacityNegativeValue() {
 }
 
 testOverrideCapacityNegativeValue();
+
+function testOverrideCapacityZeroValue() {
+  console.log("\n***********");
+  console.log("testOverrideCapacityZeroValue");
+  console.log("Test that airport capacity can be set to zero");
+
+  //ARRANGE
+  const airport = new Airport();
+  const newAirportCapacity = 0;
+  const expected = newAirportCapacity;
+  let actual, result;
+
+  //ACT
+  airport.overrideCapacity(newAirportCapacity);
+  actual = airport.airportCapacity;
+
+  //ASSERT
+  result = assertEquals(actual, expected);
+
+  //REPORT
+  printResult(result, actual, true);
+}
+
+testOverrideCapacityZeroValue();
