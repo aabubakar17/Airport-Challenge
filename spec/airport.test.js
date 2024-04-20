@@ -360,3 +360,56 @@ function testLandPlaneWhenPlaneIsNotAtAirport() {
 }
 
 testLandPlaneWhenPlaneIsNotAtAirport();
+
+function testPlaneTakeOffWhenPlaneIsAtAirport() {
+  console.log("\n***********");
+  console.log("testPlaneTakeOffWhenPlaneIsAtAirport");
+  console.log(
+    "Take off plane from the airport using planeTakeOff when plane is already at airport and expect airportPlanes array to decrease in length by 1"
+  );
+
+  //ARRANGE
+  const airport = new Airport();
+  const planeBA = new Plane();
+  airport.planeLand(planeBA);
+  const expected = airport.airportPlanes.length - 1;
+  let actual, result;
+
+  //ACT
+  airport.planeTakeOff(planeBA);
+  actual = airport.airportPlanes.length;
+
+  //ASSERT
+  result = assertEquals(actual, expected);
+
+  //REPORT
+  printResult(result, actual, true);
+}
+
+testPlaneTakeOffWhenPlaneIsAtAirport();
+
+function testPlaneTakeOffWhenPlaneIsNotAtAirport() {
+  console.log("\n***********");
+  console.log("testPlaneTakeOffWhenPlaneIsNotAtAirport");
+  console.log(
+    "Take off plane from the airport using planeTakeOff when plane is already at airport and expect airportPlanes array to decrease in length by 1"
+  );
+
+  //ARRANGE
+  const airport = new Airport();
+  const planeBA = new Plane();
+  const expected = airport.airportPlanes.length;
+  let actual, result;
+
+  //ACT
+  airport.planeTakeOff(planeBA);
+  actual = airport.airportPlanes.length;
+
+  //ASSERT
+  result = assertEquals(actual, expected);
+
+  //REPORT
+  printResult(result, actual, true);
+}
+
+testPlaneTakeOffWhenPlaneIsNotAtAirport();

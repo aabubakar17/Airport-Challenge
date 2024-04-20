@@ -18,4 +18,11 @@ export class Airport {
   planeAtAirport(newPlane) {
     return this.airportPlanes.includes(newPlane);
   }
+
+  planeTakeOff(TakeOffPlane) {
+    if (this.planeAtAirport(TakeOffPlane))
+      this.airportPlanes = this.airportPlanes.filter(
+        (plane) => plane !== TakeOffPlane
+      );
+  }
 }
