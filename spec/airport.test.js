@@ -1,4 +1,4 @@
-import { assertEquals } from "./test-framework.js";
+import { assertEquals, assertFalse } from "./test-framework.js";
 import { Airport } from "../src/airport.js";
 
 function printResult(result, actual, expected) {
@@ -55,3 +55,27 @@ function testOverrideCapacity() {
 }
 
 testOverrideCapacity();
+
+function testOverrideCapacityNegativeValue() {
+  console.log("\n***********");
+  console.log("testOverrideCapacity");
+  console.log(`Test that airportCapacity cannot be set to a negative value`);
+
+  //ARRANGE
+  const airport = new Airport();
+  const newAirportCapacity = -5;
+  const expected = airport.airportCapacity; //expect airport capacity to be default;
+  let actual, result;
+
+  //ACT
+  airport.overrideCapacity(newAirportCapacity);
+  actual = airport.airportCapacity;
+
+  //ASSERT
+  result = assertEquals(actual, expected);
+
+  //REPORT
+  printResult(result, actual, true);
+}
+
+testOverrideCapacityNegativeValue();
