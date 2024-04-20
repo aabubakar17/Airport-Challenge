@@ -279,7 +279,84 @@ function testPlaneAtAirport() {
   result = assertTrue(actual);
 
   //REPORT
-  printResult(result, actual, false);
+  printResult(result, actual, true);
 }
 
 testPlaneAtAirport();
+
+function testPlaneIsNotAtAirport() {
+  console.log("\n***********");
+  console.log("testPlaneIsNotAtAirport");
+  console.log(
+    "Test that planeAtAirport(Plane) returns false when the plane is not at the airport"
+  );
+
+  //ARRANGE
+  const airport = new Airport();
+  const planeRA = new Plane();
+  let actual, result;
+
+  //ACT
+  actual = airport.planeAtAirport(planeRA);
+
+  //ASSERT
+  result = assertFalse(actual);
+
+  //REPORT
+  printResult(result, actual, false);
+}
+
+testPlaneIsNotAtAirport();
+
+function testLandPlaneWhenPlaneIsAtAirport() {
+  console.log("\n***********");
+  console.log("testLandPlaneWhenPlaneIsAtAirport");
+  console.log(
+    "Land plane to airport using planeLand when plane is already at airport and expect airportPlanes array to be unchanged in length"
+  );
+
+  //ARRANGE
+  const airport = new Airport();
+  const planeRA = new Plane();
+  airport.planeLand(planeRA);
+  const expected = airport.airportPlanes.length;
+  let actual, result;
+
+  //ACT
+  airport.planeLand(planeRA); //land plane twice to check if the airportPlane [] changes in length
+  actual = airport.airportPlanes.length;
+
+  //ASSERT
+  result = assertEquals(actual, expected);
+
+  //REPORT
+  printResult(result, actual, true);
+}
+
+testLandPlaneWhenPlaneIsAtAirport();
+
+function testLandPlaneWhenPlaneIsNotAtAirport() {
+  console.log("\n***********");
+  console.log("testLandPlaneWhenPlaneIsNotAtAirport");
+  console.log(
+    "Land plane to airport using planeLand when plane is not at airport and expect airportPlanes array to increase in length by 1"
+  );
+
+  //ARRANGE
+  const airport = new Airport();
+  const planeRA = new Plane();
+  const expected = airport.airportPlanes.length + 1;
+  let actual, result;
+
+  //ACT
+  airport.planeLand(planeRA);
+  actual = airport.airportPlanes.length;
+
+  //ASSERT
+  result = assertEquals(actual, expected);
+
+  //REPORT
+  printResult(result, actual, true);
+}
+
+testLandPlaneWhenPlaneIsNotAtAirport();

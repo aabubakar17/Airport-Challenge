@@ -11,7 +11,8 @@ export class Airport {
   }
 
   planeLand(newPlane) {
-    if (!this.isAirportFull()) this.airportPlanes.push(newPlane);
+    if (!this.isAirportFull() && !this.planeAtAirport(newPlane))
+      this.airportPlanes.push(newPlane);
   }
 
   planeAtAirport(newPlane) {
