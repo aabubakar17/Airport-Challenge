@@ -11,6 +11,6 @@ export class Airport {
   }
 
   planeLand(newPlane) {
-    this.airportPlanes.push(newPlane);
+    if (!this.isAirportFull) this.airportPlanes.push(newPlane);
   }
 }
