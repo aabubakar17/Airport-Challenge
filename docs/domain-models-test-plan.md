@@ -2,15 +2,13 @@
 
 ## [User Story/Requirement 1](user-stories.md)
 
-| Object  | Properties               | Messages      | Output   |
-| ------- | ------------------------ | ------------- | -------- |
-| Airport | airportCapacity @Integer | getCapacity() | @Integer |
+| Object  | Properties               | Messages | Output |
+| ------- | ------------------------ | -------- | ------ |
+| Airport | airportCapacity @Integer |          | @void  |
 
 ### Test
 
-- set default airport capacity and test if getCapacity return correct capacity value
-
-- Test that getCapacity only returns an integer
+- set default airport capacity and test if airportCapacity Property return correct capacity value
 
 ---
 
