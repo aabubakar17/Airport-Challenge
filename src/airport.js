@@ -10,8 +10,12 @@ export class Airport {
     return this.airportPlanes.length >= this.airportCapacity ? true : false;
   }
 
-  planeLand(newPlane) {
-    if (!this.isAirportFull() && !this.planeAtAirport(newPlane))
+  planeLand(newPlane, currentWeather) {
+    if (
+      !this.isAirportFull() &&
+      !this.planeAtAirport(newPlane) &&
+      currentWeather !== "stormy"
+    )
       this.airportPlanes.push(newPlane);
   }
 

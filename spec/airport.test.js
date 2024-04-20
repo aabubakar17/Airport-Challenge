@@ -1,6 +1,7 @@
 import { assertEquals, assertFalse, assertTrue } from "./test-framework.js";
 import { Airport } from "../src/airport.js";
 import { Plane } from "../src/Plane.js";
+import { weather } from "../src/weather.js";
 
 function printResult(result, actual, expected) {
   console.log(result ? "Pass" : "Fail");
@@ -412,10 +413,11 @@ function testPlaneTakeOffWhenPlaneIsNotAtAirport() {
   printResult(result, actual, true);
 }
 
-/* testPlaneTakeOffWhenPlaneIsNotAtAirport();
+testPlaneTakeOffWhenPlaneIsNotAtAirport();
 
 function testPlaneLandWhenWeatherIsStormy() {
   console.log("\n***********");
+  console.log("testPlaneLandWhenWeatherIsStormy");
   console.log("Test: Plane cannot land when weather is stormy");
 
   // ARRANGE
@@ -436,4 +438,54 @@ function testPlaneLandWhenWeatherIsStormy() {
   printResult(result, actual, true);
 }
 
-testPlaneLandWhenWeatherIsStormy(); */
+testPlaneLandWhenWeatherIsStormy();
+
+function testPlaneLandWhenWeatherIsNotStormy() {
+  console.log("\n***********");
+  console.log("testPlaneLandWhenWeatherIsNotStormy");
+  console.log("Test: Plane can land when weather is not stormy");
+
+  // ARRANGE
+  const airport = new Airport();
+  const plane = new Plane();
+  const currentWeather = "sunny";
+  const expected = airport.airportPlanes.length + 1;
+  let actual, result;
+
+  // ACT
+  airport.planeLand(plane, currentWeather);
+  actual = airport.airportPlanes.length;
+
+  // ASSERT
+  result = assertEquals(actual, expected);
+
+  // REPORT
+  printResult(result, actual, true);
+}
+
+testPlaneLandWhenWeatherIsNotStormy();
+
+/* function testPlaneTakeOffWhenWeatherIsStormy() {
+  console.log("\n***********");
+  console.log("testPlaneTakeOffWhenWeatherIsStormy");
+  console.log("Test: Plane cannot take off when weather is stormy");
+
+  // ARRANGE
+  const airport = new Airport();
+  const plane = new Plane();
+  const currentWeather = "stormy";
+  const expected = airport.airportPlanes.length;
+  let actual, result;
+
+  // ACT
+  airport.planeTakeOff(plane, currentWeather);
+  actual = airport.airportPlanes.length;
+
+  // ASSERT
+  result = assertEquals(actual, expected);
+
+  // REPORT
+  printResult(result, actual, true);
+}
+
+testPlaneTakeOffWhenWeatherIsStormy(); */
