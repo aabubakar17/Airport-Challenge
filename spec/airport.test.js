@@ -465,7 +465,7 @@ function testPlaneLandWhenWeatherIsNotStormy() {
 
 testPlaneLandWhenWeatherIsNotStormy();
 
-/* function testPlaneTakeOffWhenWeatherIsStormy() {
+function testPlaneTakeOffWhenWeatherIsStormy() {
   console.log("\n***********");
   console.log("testPlaneTakeOffWhenWeatherIsStormy");
   console.log("Test: Plane cannot take off when weather is stormy");
@@ -473,6 +473,7 @@ testPlaneLandWhenWeatherIsNotStormy();
   // ARRANGE
   const airport = new Airport();
   const plane = new Plane();
+  airport.planeLand(plane); //plane is currently at airport
   const currentWeather = "stormy";
   const expected = airport.airportPlanes.length;
   let actual, result;
@@ -488,4 +489,30 @@ testPlaneLandWhenWeatherIsNotStormy();
   printResult(result, actual, true);
 }
 
-testPlaneTakeOffWhenWeatherIsStormy(); */
+testPlaneTakeOffWhenWeatherIsStormy();
+
+function testPlaneTakeOffWhenWeatherIsNotStormy() {
+  console.log("\n***********");
+  console.log("testPlaneTakeOffWhenWeatherIsNotStormy");
+  console.log("Test: Plane can take off when weather is not stormy");
+
+  // ARRANGE
+  const airport = new Airport();
+  const plane = new Plane();
+  airport.planeLand(plane); // Plane is already at the airport
+  const currentWeather = "sunny";
+  const expected = airport.airportPlanes.length - 1;
+  let actual, result;
+
+  // ACT
+  airport.planeTakeOff(plane, currentWeather);
+  actual = airport.airportPlanes.length;
+
+  // ASSERT
+  result = assertEquals(actual, expected);
+
+  // REPORT
+  printResult(result, actual, true);
+}
+
+testPlaneTakeOffWhenWeatherIsNotStormy();
