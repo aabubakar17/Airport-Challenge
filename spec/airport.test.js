@@ -29,3 +29,29 @@ function testAirportCapacity() {
 }
 
 testAirportCapacity();
+
+function testOverrideCapacity() {
+  console.log("\n***********");
+  console.log("testOverrideCapacity");
+  console.log(
+    `set new airport capacity using overrideCapacity() and test if airportCapacity property reflects new change`
+  );
+
+  //ARRANGE
+  const airport = new Airport();
+  const newAirportCapacity = 5;
+  const expected = newAirportCapacity;
+  let actual, result;
+
+  //ACT
+  airport.overrideCapacity(newAirportCapacity);
+  actual = airport.airportCapacity;
+
+  //ASSERT
+  result = assertEquals(actual, expected);
+
+  //REPORT
+  printResult(result, actual, true);
+}
+
+testOverrideCapacity();
