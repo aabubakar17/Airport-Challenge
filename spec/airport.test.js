@@ -1,5 +1,6 @@
-import { assertEquals, assertFalse } from "./test-framework.js";
+import { assertEquals, assertFalse, assertTrue } from "./test-framework.js";
 import { Airport } from "../src/airport.js";
+import { Plane } from "../src/Plane.js";
 
 function printResult(result, actual, expected) {
   console.log(result ? "Pass" : "Fail");
@@ -103,3 +104,38 @@ function testOverrideCapacityZeroValue() {
 }
 
 testOverrideCapacityZeroValue();
+
+function testAirportFull() {
+  console.log("\n***********");
+  console.log("testAirportFull");
+  console.log(
+    "Test isAirportFull() returns true when the airport is at capacity"
+  );
+
+  //ARRANGE
+  const airport = new Airport();
+  let actual, result;
+
+  //ACT
+  airport.airportPlanes.push(
+    new Plane(),
+    new Plane(),
+    new Plane(),
+    new Plane(),
+    new Plane(),
+    new Plane(),
+    new Plane(),
+    new Plane(),
+    new Plane(),
+    new Plane()
+  );
+  actual = airport.isAirportFull();
+
+  //ASSERT
+  result = assertTrue(actual);
+
+  //REPORT
+  printResult(result, actual, true);
+}
+
+testAirportFull();

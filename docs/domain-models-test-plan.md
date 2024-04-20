@@ -35,8 +35,8 @@
 
 ### Test
 
-- Test that isAirportFull() returns true when the airport is at capacity.
-- Test that isAirportFull() returns false when the airport has available space.
+- Test isAirportFull() returns true when the airport is at capacity.
+- Test isAirportFull() returns false when the airport has available space.
 - Add plane to airport using planeLand and expect airportPlanes to increase by length 1
 - Test that planeLand() adds the correct plane to the airportPlanes.
 - Add plane to airport using planeLand when airport is full and expect airportPlanes array to be unchanged in length
