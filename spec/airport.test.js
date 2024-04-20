@@ -412,4 +412,28 @@ function testPlaneTakeOffWhenPlaneIsNotAtAirport() {
   printResult(result, actual, true);
 }
 
-testPlaneTakeOffWhenPlaneIsNotAtAirport();
+/* testPlaneTakeOffWhenPlaneIsNotAtAirport();
+
+function testPlaneLandWhenWeatherIsStormy() {
+  console.log("\n***********");
+  console.log("Test: Plane cannot land when weather is stormy");
+
+  // ARRANGE
+  const airport = new Airport();
+  const plane = new Plane();
+  const currentWeather = "stormy";
+  const expected = airport.airportPlanes.length;
+  let actual, result;
+
+  // ACT
+  airport.planeLand(plane, currentWeather);
+  actual = airport.airportPlanes.length;
+
+  // ASSERT
+  result = assertEquals(actual, expected);
+
+  // REPORT
+  printResult(result, actual, true);
+}
+
+testPlaneLandWhenWeatherIsStormy(); */

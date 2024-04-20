@@ -75,10 +75,11 @@
 
 ## [User Story/Requirement 6](user-stories.md)
 
-| Object  | Properties                                                   | Messages                           | Output   |
-| ------- | ------------------------------------------------------------ | ---------------------------------- | -------- |
-| Airport | airportPlanes @Array[@Plane] Weather @Array[@currentWeather] | planeLand(@Plane, @currentWeather) | @Boolean |
-| Plane   | id @String                                                   |                                    |          |
+| Object  | Properties                      | Messages                           | Output   |
+| ------- | ------------------------------- | ---------------------------------- | -------- |
+| Airport | airportPlanes @Array[@Plane]    | planeLand(@Plane, @currentWeather) | @Boolean |
+| Plane   | id @String                      |                                    |          |
+| Weather | Weather @Array[@currentWeather] |                                    |          |
 
 ### Test
 
@@ -89,10 +90,11 @@
 
 ## [User Story/Requirement 7](user-stories.md)
 
-| Object  | Properties                                                   | Messages                              | Output   |
-| ------- | ------------------------------------------------------------ | ------------------------------------- | -------- |
-| Airport | airportPlanes @Array[@Plane] Weather @Array[@currentWeather] | planeTakeOff(@Plane, @currentWeather) | @Boolean |
-| Plane   | id @String                                                   |                                       |          |
+| Object  | Properties                      | Messages                              | Output   |
+| ------- | ------------------------------- | ------------------------------------- | -------- |
+| Airport | airportPlanes @Array[@Plane]    | planeTakeOff(@Plane, @currentWeather) | @Boolean |
+| Plane   | id @String                      |                                       |          |
+| Weather | Weather @Array[@currentWeather] |                                       |          |
 
 ### Test
 
