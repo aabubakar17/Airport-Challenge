@@ -1,7 +1,7 @@
 import { assertEquals, assertFalse, assertTrue } from "./test-framework.js";
 import { Airport } from "../src/airport.js";
-import { Plane } from "../src/Plane.js";
-import { weather } from "../src/weather.js";
+import { Plane } from "../src/plane.js";
+import { Weather } from "../src/weather.js";
 
 function printResult(result, actual, expected) {
   console.log(result ? "Pass" : "Fail");
