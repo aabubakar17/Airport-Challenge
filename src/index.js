@@ -23,7 +23,7 @@ console.log("======================================================");
 // Plane 1 lands at the airport if conditions are met
 airport.planeLand(plane1, currentWeather);
 console.log(`No. Planes at airport: ${airport.airportPlanes.length}`);
-console.log("======================================================");
+console.log("========================================================");
 
 // Plane 2 lands at the airport if conditions are met
 airport.planeLand(plane2, currentWeather);
